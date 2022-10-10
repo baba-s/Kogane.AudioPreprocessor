@@ -1,10 +1,15 @@
-﻿using UnityEditor;
-
-namespace Kogane.Internal
+﻿namespace Kogane.Internal
 {
-    [FilePath( "ProjectSettings/Kogane/AudioPreprocessorSettings.asset", FilePathAttribute.Location.ProjectFolder )]
     internal sealed class AudioPreprocessorSettings :
         PreprocessorSettingsBase<AudioPreprocessorSettings, AudioPreprocessorSetting>
     {
+        private const string PATH = "ProjectSettings/Kogane/AudioPreprocessorSettings.json";
+
+        public static AudioPreprocessorSettings Instance => GetInstance( PATH );
+
+        public void Save()
+        {
+            SaveToJson( PATH );
+        }
     }
 }

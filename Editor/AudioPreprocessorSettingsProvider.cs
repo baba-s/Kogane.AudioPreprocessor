@@ -22,7 +22,7 @@ namespace Kogane.Internal
 
         public override void OnActivate( string searchContext, VisualElement rootElement )
         {
-            var instance = AudioPreprocessorSettings.instance;
+            var instance = AudioPreprocessorSettings.Instance;
 
             instance.hideFlags = HideFlags.HideAndDontSave & ~HideFlags.NotEditable;
 
@@ -50,7 +50,7 @@ namespace Kogane.Internal
 
             if ( !changeCheckScope.changed ) return;
 
-            AudioPreprocessorSettings.instance.Save();
+            AudioPreprocessorSettings.Instance.Save();
         }
 
         private static void CreateScriptableObject<T>() where T : ScriptableObject

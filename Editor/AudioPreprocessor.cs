@@ -21,7 +21,7 @@ namespace Kogane.Internal
             // // バッチモードの場合は何もしません
             // if ( Application.isBatchMode ) return;
 
-            var preprocessorSettings = AudioPreprocessorSettings.instance;
+            var preprocessorSettings = AudioPreprocessorSettings.Instance;
 
             // 設定ファイルが存在しない場合は何もしません
             if ( preprocessorSettings == null ) return;
