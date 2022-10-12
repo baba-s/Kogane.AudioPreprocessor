@@ -5,7 +5,10 @@
     {
         private const string PATH = "ProjectSettings/Kogane/AudioPreprocessorSettings.json";
 
-        public static AudioPreprocessorSettings Instance => GetInstance( PATH );
+        public static AudioPreprocessorSettings GetInstance( bool force = false )
+        {
+            return GetInstance( PATH, force );
+        }
 
         public void Save()
         {

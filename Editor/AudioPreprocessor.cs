@@ -21,7 +21,11 @@ namespace Kogane.Internal
             // // バッチモードの場合は何もしません
             // if ( Application.isBatchMode ) return;
 
-            var preprocessorSettings = AudioPreprocessorSettings.Instance;
+            // MacBook Pro 16 インチ 2021 だと
+            // シングルトンな ScriptableObject を OnPreprocessAudio で参照すると
+            // 変更された設定が反映されていない古い ScriptableObject が返ってきてしまうため
+            // 強制的に .json ファイルの内容を読み込んで使用するようにしています
+            var preprocessorSettings = AudioPreprocessorSettings.GetInstance( true );
 
             // 設定ファイルが存在しない場合は何もしません
             if ( preprocessorSettings == null ) return;
